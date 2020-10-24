@@ -1,0 +1,198 @@
+/*------------------------------------*\
+    #BASE
+\*------------------------------------*/
+
+* {
+	box-sizing: border-box;
+	        font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+a {
+	color: inherit;
+	text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 0;
+}
+
+p {
+	margin: 0;
+}
+
+button {
+	outline: 0;
+	margin: 0;
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 0;
+	line-height: 1;
+	vertical-align: middle;
+}
+
+img {
+	max-width: 100%;
+}
+
+ul, ol {
+	padding: 0;
+	margin: 0;
+}
+
+li {
+	list-style: none;
+}
+// END RESET
+
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@900&display=swap');
+$font-raleway: 'Raleway', Helvetica, sans-serif;
+
+$bounce-animation: bounce-in-top 1.5s both;
+$slide-animation: scale-in-center 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+$text-expand: tracking-in-expand-fwd 0.5s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+
+@mixin flex-center {
+    display: grid;
+    grid-template-rows: 80% 20%;
+    align-items: center;
+    justify-items: center;
+}
+
+#content {
+    height: 100vh;
+    width: 100%;
+    padding: 1em;
+}
+
+h2 {
+    color: #444455;
+    font-family: $font-raleway;
+    font-size: 36px;
+    text-transform: uppercase;
+    font-weight: 900;
+    animation: $text-expand;
+}
+
+#faders, #mixer {
+    width: 100%;
+    height: 100%;
+    img {
+        margin: auto;
+        height: 100%;
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    body {
+        background: #FF6464;
+    }
+    #mixer {
+        display: none;
+    }
+    #faders {
+        @include flex-center;
+        img {
+            animation: $bounce-animation;
+        }
+    }
+}
+
+@media only screen and (orientation: landscape) {
+    body {
+        background: #2196F3;
+    }
+    #faders {
+        display: none;
+    }
+    #mixer {
+        @include flex-center;
+        img {
+            display: block !important;
+            animation: $slide-animation;
+            width: max-content;
+        @media only screen and (max-width: 600px) {
+            height: 85%;
+        }
+        }
+    }
+}
+
+/*------------------------------------*\
+    #ANIMATION KEYFRAMES
+\*------------------------------------*/
+ @keyframes bounce-in-top {
+    0% {
+      transform: translateY(-500px);
+      animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      transform: translateY(-65px);
+      animation-timing-function: ease-in;
+    }
+    72% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+    81% {
+      transform: translateY(-28px);
+      animation-timing-function: ease-in;
+    }
+    90% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+    95% {
+      transform: translateY(-8px);
+      animation-timing-function: ease-in;
+    }
+    100% {
+      transform: translateY(0);
+      animation-timing-function: ease-out;
+    }
+  }
+
+ @keyframes scale-in-center {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+@keyframes tracking-in-expand-fwd {
+    0% {
+      letter-spacing: -0.5em;
+      transform: translateZ(-700px);
+      opacity: 0;
+    }
+    40% {
+      opacity: 0.6;
+    }
+    100% {
+      transform: translateZ(0);
+      opacity: 1;
+    }
+  }
+  
