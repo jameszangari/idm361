@@ -72,11 +72,17 @@ html {
 $font-raleway: 'Raleway', Helvetica, sans-serif;
 
 @mixin flex-center {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    align-content: center;
-    justify-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  justify-items: center;
+}
+
+@mixin grid-center {
+  display: grid;
+  align-items: center;
+  justify-items: center;
 }
 
 body {
@@ -84,7 +90,6 @@ body {
 }
 
 .content {
-  // @include flex-center();
   display: grid;
   align-items: center;
   justify-items: center;
@@ -135,7 +140,7 @@ body {
     }
     // PADS STYLE
     &-pads {
-      display: grid;
+      @include grid-center();
       grid-template-columns: repeat(2, 1fr);
       &__title {
         font-size: 36px;
@@ -170,4 +175,52 @@ body {
 
 .content-pads {
   display: none;
+}
+
+@media (orientation: portrait) {
+  .content {
+    display: grid;
+  }
+  .content__rotate {
+    display: none;
+  }
+}
+
+@media (orientation: landscape) {
+  body {
+    background: #FF6464;
+  }
+  .content {
+    display: none;
+  }
+}
+.content__rotate {
+  @include grid-center();
+  height: 100vh;
+  width: 100%;
+  &--image {
+    height: 75%;
+    width: 100%;
+    &-path {
+      animation: blinking 1.5s infinite;
+    }
+  }
+  &--subtitle {
+    animation: blinkingText 1.5s infinite;
+    font-size: 28px;
+    color: #FFFFFF;
+    margin: 12px 0 36px 0;
+  }
+}
+
+@keyframes blinking {
+	0% {		fill: #ffffff;	}
+	50% {	fill: transparent;	}
+	100% {	fill: #ffffff;	}
+}
+
+@keyframes blinkingText {
+	0% {		color: #ffffff;	}
+	50% {	color: transparent;	}
+	100% {	color: #ffffff;	}
 }
