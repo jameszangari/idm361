@@ -1,0 +1,43 @@
+CACHE MANIFEST
+# version - 1.0
+
+CACHE:
+
+# CSS
+css/normalize.css
+css/add2home.css
+css/main.css
+
+# IMAGES
+img/melodee-icon-57.png
+img/melodee-icon-72.png
+img/melodee-icon-76.png
+img/melodee-icon-114.png
+img/melodee-icon-144.png
+img/melodee-icon-152.png
+img/melodee-icon-180.png
+img/melodee-icon-256.png
+img/melodee-icon.png
+
+# AUDIO
+audio/crash_pad.mp3
+audio/hat_pad.mp3
+audio/kick_pad.mp3
+audio/perc_pad.mp3
+audio/snare_pad.mp3
+audio/tom_pad.mp3
+audio/piano_pad.mp3
+
+# HTML FILES
+index.html
+
+# JAVASCRIPT - SPECIFIC ORDER
+scripts/refresh-manifest.js
+scripts/jquery-3.5.1.min.js
+scripts/add2homeconfig.js
+scripts/add2home.js
+scripts/main.js
+
+## Any resources not listed above will require the user to be online.
+NETWORK:
+*
